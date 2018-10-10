@@ -25,6 +25,7 @@ struct ImageDisplay {
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   
   var frameSublayer = CALayer()
+  var textRecognizer: VisionTextRecognizer!
   
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var pickerView: UIPickerView!
@@ -36,6 +37,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Initialize the on-device text detector
+    let vision = Vision.vision()
+    textRecognizer = vision.onDeviceTextRecognizer()
     imageView.layer.addSublayer(frameSublayer)
     pickerView.dataSource = self
     pickerView.delegate = self
@@ -54,7 +58,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   // MARK: Text Recognition
   
   func runTextRecognition(with image: UIImage) {
-
+    let visionImage = VisionImage(image: image)
+    textRecognizer.process(visionImage, completion: { (features, error) in
+        self.processResult(from: features, error: error)
+    })
   }
   
   func runCloudTextRecognition(with image: UIImage) {
@@ -65,7 +72,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   // MARK: Image Drawing
   
   func processResult(from text: VisionText?, error: Error?) {
-    
+    removeFrames()
+    guard let features = text, let image = imageView.image else {
+        return
+    }
+    for block in features.blocks {
+        for line in block.lines {
+            for element in line.elements {
+                self.addFrameView(
+                    featureFrame: element.frame,
+                    imageSize: image.size,
+                    viewFrame: self.imageView.frame,
+                    text: element.text
+                )
+            }
+        }
+    }
   }
 
   
