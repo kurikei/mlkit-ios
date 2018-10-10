@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   
   var frameSublayer = CALayer()
   var textRecognizer: VisionTextRecognizer!
+  var cloudTextRecognizer: VisionTextRecognizer!
   
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var pickerView: UIPickerView!
@@ -37,9 +38,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Initialize the on-device text detector
     let vision = Vision.vision()
     textRecognizer = vision.onDeviceTextRecognizer()
+    // Initialize the Cloud Document Text Recognizer
+    cloudTextRecognizer = vision.cloudTextRecognizer()
     imageView.layer.addSublayer(frameSublayer)
     pickerView.dataSource = self
     pickerView.delegate = self
@@ -65,7 +67,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   }
   
   func runCloudTextRecognition(with image: UIImage) {
-
+    let visionImage = VisionImage(image: image)
+    cloudTextRecognizer.process(visionImage, completion: { (features, error) in
+        self.processResult(from: features, error: error)
+    })
   }
 
   
