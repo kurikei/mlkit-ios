@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8119FDEB216E049900F78BF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8119FDEA216E049900F78BF9 /* GoogleService-Info.plist */; };
 		877A60E26612FB3666609F40 /* Pods_text_recognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F725EBFB08FCDE2C294BE /* Pods_text_recognition.framework */; };
 		BB70D4DE209CF98500743DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D4DD209CF98500743DA7 /* AppDelegate.swift */; };
 		BB70D4E0209CF98500743DA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D4DF209CF98500743DA7 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 		2A0F725EBFB08FCDE2C294BE /* Pods_text_recognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_text_recognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C45C3F95D71D06759C39891 /* Pods-text-recognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-text-recognition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-text-recognition/Pods-text-recognition.debug.xcconfig"; sourceTree = "<group>"; };
 		545A004A7B2A94B244BF5DA0 /* Pods-text-recognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-text-recognition.release.xcconfig"; path = "Pods/Target Support Files/Pods-text-recognition/Pods-text-recognition.release.xcconfig"; sourceTree = "<group>"; };
+		8119FDEA216E049900F78BF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB70D4DA209CF98500743DA7 /* text-recognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "text-recognition.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB70D4DD209CF98500743DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB70D4DF209CF98500743DA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		BB70D4D1209CF98500743DA7 = {
 			isa = PBXGroup;
 			children = (
+				8119FDEA216E049900F78BF9 /* GoogleService-Info.plist */,
 				BB70D4DC209CF98500743DA7 /* text-recognition */,
 				BB70D4DB209CF98500743DA7 /* Products */,
 				6ED7B724F92BFE0058F0543E /* Pods */,
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB70D4E8209CF98500743DA7 /* LaunchScreen.storyboard in Resources */,
+				8119FDEB216E049900F78BF9 /* GoogleService-Info.plist in Resources */,
 				BB70D4E5209CF98500743DA7 /* Assets.xcassets in Resources */,
 				BB70D4E3209CF98500743DA7 /* Main.storyboard in Resources */,
 			);
